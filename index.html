@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style/style.css">
+  <script src="vue.js"></script>
+  <title>Vue Class and Style</title>
+</head>
+
+<body>
+  <div id="app">
+    <h3>Clique nos cards para preenchê-los com suas respectivas cores</h3>
+    <div class="cards-container">
+      <div v-on:click="handleFillColor('blue')" v-bind:class="[cardClass, { fillBlue: colorFill.blue }]" v-bind:style="{ borderColor: colors.blue }">
+        <p v-bind:class="[enTextClass, { colorWhite: colorFill.blue }]">Fill me blue</p>
+        <p class="ptbr-text">Me preencha com azul</p>
+      </div>
+      <div v-on:click="handleFillColor('green')" v-bind:class="[cardClass, { fillGreen: colorFill.green }]" v-bind:style="{ borderColor: colors.green }">
+        <p v-bind:class="[enTextClass, { colorWhite: colorFill.green }]">Fill me green</p>
+        <p class="ptbr-text">Me preencha com verde</p>
+      </div>
+      <div v-on:click="handleFillColor('red')" v-bind:class="[cardClass, { fillRed: colorFill.red }]" v-bind:style="{ borderColor: colors.red }">
+        <p v-bind:class="[enTextClass, { colorWhite: colorFill.red }]">Fill me red</p>
+        <p class="ptbr-text">Me preencha com vermelho</p>
+      </div>
+      <div v-on:click="handleFillColor('orange')" v-bind:class="[cardClass, { fillOrange: colorFill.orange }]" v-bind:style="{ borderColor: colors.orange }">
+        <p v-bind:class="[enTextClass, { colorWhite: colorFill.orange }]">Fill me orange</p>
+        <p class="ptbr-text">Me preencha com amarelo</p>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script>
+  const vm = new Vue({
+    el: '#app',
+    data: {
+      fillMeBlue: false,
+      fillMeGreen: false,
+      fillMeRed: false,
+      fillMeOrange: false,
+      colors: {
+        blue: '#7eabff',
+        green: '#41B883',
+        red: '#ff6767',
+        orange: '#fd7d33',
+      },
+      cardClass: 'card',
+      enTextClass: 'en-text',
+      colorFill: {
+        blue: false,
+        green: false,
+        red: false,
+        orange: false,
+      },
+    },
+    methods: {
+      handleFillColor(colorName) {
+        this.colorFill = {
+          ...this.colorFill,
+          [colorName]: !this.colorFill[colorName]
+        }
+
+        console.log('colorFill:', this.colorFill)
+      }
+    },
+  })
+</script>
+
+</html>

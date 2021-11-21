@@ -1,0 +1,108 @@
+:root {
+  --border-color: #dddddd;
+  --background-light: #fafafa;
+  --text-primary-color: #333333;
+  --text-secondary-color: #666666;
+  --green: #41B883;
+  --light-green: #9bffd2;
+  --red: #ff6767;
+  --light-red: #ffbbbb;
+  --blue: #7eabff;
+  --light-blue: #b9d2ff;
+  --orange: #fd7d33;
+  --light-orange: #ffb68c;
+  --box-shadow-color: rgb(0, 0, 0, .2);
+}
+
+/* para quem acessar do navegador no celular, diminuir a fonte do html
+para redimensionar as medidas em rem */
+@media (max-width: 425px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Fira Code', monospace;
+  color: var(--text-primary-color);
+}
+
+li {
+  list-style: none;
+}
+
+#app {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-light);
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.cards-container {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: .25rem;
+  border-width: 3.5px;
+  border-style: solid;
+  transition: background-color 500ms, box-shadow 300ms;
+  cursor: pointer;
+  width: 18rem;
+}
+
+.card:hover {
+  box-shadow: 0 0 10px var(--box-shadow-color);
+}
+
+.buttons-container {
+  padding: 1.5rem;
+}
+
+h3 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.en-text {
+  font-weight: 600;
+  margin-bottom: .5rem;
+}
+
+.ptbr-text {
+  color: var(--text-secondary-color);
+  font-size: .875rem;
+}
+
+.fillBlue {
+  background-color: var(--blue);
+}
+
+.fillGreen {
+  background-color: var(--green);
+}
+
+.fillRed {
+  background-color: var(--red);
+}
+
+.fillOrange {
+  background-color: var(--orange);
+}
+
+.colorWhite {
+  color: #ffffff;
+}
